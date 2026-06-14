@@ -1,4 +1,4 @@
-.wrap { position: relative; display: inline-block; }
+.wrap { position: relative; display: inline-block; border: 1px solid #ddd ;background: #fff;}
 .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; width: 500px; }
 .group { display: flex; gap: 6px; }
 .divider { width: 1px; background: #ddd; margin: 0 2px; }
@@ -10,7 +10,8 @@ button:hover { background: #f0f0f0; }
 button.active { background: #e8f0fe; border-color: #4285f4; color: #4285f4; }
 .hint { margin-top: 12px; font-size: 12px; color: #999; }
 
-.text-box{cursor: grab; padding:3px 6px}
+.text-box{cursor: grab; padding:3px 6px; white-space: nowrap;}
 .text-box.selected { background: #e8f0fe; border:1px solid #4285f4; color: #4285f4;}
 .text-box.editing { background: none; border:none; outline:none;}
+
 

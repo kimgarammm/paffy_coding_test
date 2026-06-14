@@ -36,7 +36,18 @@ function App() {
     if (!wrapRef.current || !drag.current) return;
     const r = wrapRef.current.getBoundingClientRect();
     const { id, offsetX, offsetY } = drag.current;
-    const x = e.clientX - r.left - offsetX, y = e.clientY - r.top - offsetY;
+
+    const el = boxRefs.current.get(id);
+    const bw = el?.offsetWidth ?? 0;
+    const bh = el?.offsetHeight ?? 0;
+
+    let x = e.clientX - r.left - offsetX;
+    let y = e.clientY - r.top - offsetY;
+
+    // 컨테이너(500×500) 안으로 제한
+    x = Math.max(0, Math.min(x, r.width - bw));
+    y = Math.max(0, Math.min(y, r.height - bh));
+
     setTexts(prev => prev.map(t => t.id === id ? { ...t, x, y } : t));
   };
 
